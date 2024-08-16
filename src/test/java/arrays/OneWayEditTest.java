@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class OneWayEditTest {
+public class OneWayEditTest { 
     private OneWayEdit s = new OneWayEdit();
     @Test
     public void withEmpty() {
