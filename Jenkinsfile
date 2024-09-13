@@ -4,11 +4,12 @@ pipeline {
         // Timeout counter starts AFTER agent is allocated
         timeout(time: 1, unit: 'SECONDS')
     }
-      tools {
-       maven 'Maven 3.8.1'  // Specify your Maven version here
-        jdk 'JDK 11'         // Specify your JDK version here
+     environment {
+        // Specify the location where Maven is installed
+        MAVEN_HOME = tool 'maven'
+        // Add Maven bin directory to PATH
+        PATH = "$MAVEN_HOME/bin:$PATH"
     }
-
     stages {
         stage('Example') {
             steps {
