@@ -5,7 +5,7 @@ pipeline {
         timeout(time: 1, unit: 'SECONDS')
     }
     tools {
-        maven 'Maven 3.9.9'  // Make sure this matches the name in Global Tool Configuration
+        maven 'Maven'  // Make sure this matches the name in Global Tool Configuration
     }
     stages {
         stage('Example') {
