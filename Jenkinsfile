@@ -5,8 +5,8 @@ pipeline {
         timeout(time: 1, unit: 'SECONDS')
     }
       tools {
-        // Use the Maven tool configured in Jenkins Global Tool Configuration
-        maven  // This name must match the one you configured in Global Tool Configuration
+       maven 'Maven 3.8.1'  // Specify your Maven version here
+        jdk 'JDK 11'         // Specify your JDK version here
     }
 
     stages {
