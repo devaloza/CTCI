@@ -4,6 +4,11 @@ pipeline {
         // Timeout counter starts AFTER agent is allocated
         timeout(time: 1, unit: 'SECONDS')
     }
+      tools {
+        // Use the Maven tool configured in Jenkins Global Tool Configuration
+        maven 'Maven 3.9.9'  // This name must match the one you configured in Global Tool Configuration
+    }
+
     stages {
         stage('Example') {
             steps {
