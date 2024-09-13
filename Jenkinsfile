@@ -4,7 +4,9 @@ pipeline {
         // Timeout counter starts AFTER agent is allocated
         timeout(time: 1, unit: 'SECONDS')
     }
-    
+    tools {
+        maven 'Maven 3.8.1'  // Make sure this matches the name in Global Tool Configuration
+    }
     stages {
         stage('Example') {
             steps {
