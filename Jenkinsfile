@@ -4,12 +4,7 @@ pipeline {
         // Timeout counter starts AFTER agent is allocated
         timeout(time: 1, unit: 'SECONDS')
     }
-     environment {
-        // Specify the location where Maven is installed
-        MAVEN_HOME = tool 'maven'
-        // Add Maven bin directory to PATH
-        PATH = "$MAVEN_HOME/bin:$PATH"
-    }
+    
     stages {
         stage('Example') {
             steps {
@@ -19,7 +14,7 @@ pipeline {
         stage('Build') {
                     steps {
                         echo 'Building..'
-                        sh 'mvn clean compile'
+                         sh '/usr/local/bin/mvn clean compile'
                     }
                 }
                 stage('Test') {
