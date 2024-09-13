@@ -13,6 +13,7 @@ pipeline {
         stage('Build') {
                     steps {
                         echo 'Building..'
+                        sh 'mvn clean compile'
                     }
                 }
                 stage('Test') {
@@ -21,14 +22,32 @@ pipeline {
                          /* `make check` returns non-zero on test failures,
                                         * using `true` to allow the Pipeline to continue nonetheless
                          */
-                        sh 'make check || true'
-                        junit '**/target/*.xml'
+                        
+                        sh 'mvn test'
                     }
                 }
+         stage('Post-Build Actions') {
+            steps {
+                // Archive test results, coverage reports, etc. (optional)
+                junit '**/target/surefire-reports/*.xml'
+            }
+        }
                 stage('Deploy') {
                     steps {
                         echo 'Deploying....'
                     }
                 }
+    }
+    post {
+        always {
+            // Cleanup or notifications
+            echo 'Build finished'
+        }
+        success {
+            echo 'Build succeeded'
+        }
+        failure {
+            echo 'Build failed'
+        }
     }
 }
