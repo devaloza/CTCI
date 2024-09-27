@@ -8,14 +8,16 @@ pipeline {
         maven 'Maven'  // Make sure this matches the name in Global Tool Configuration
     }
     stages {
-        stage('Example') {
+        stage('Checkout') {
             steps {
-                echo 'Hello World'
+                // Checkout the code from the Git branch
+                checkout scm
             }
         }
         stage('Build') {
                     steps {
                         echo 'Building..'
+                        sh 'mvn clean install'
                          sh 'mvn clean compile'
                     }
                 }
