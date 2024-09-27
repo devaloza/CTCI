@@ -8,12 +8,7 @@ pipeline {
         maven 'Maven'  // Make sure this matches the name in Global Tool Configuration
     }
     stages {
-        stage('Checkout') {
-            steps {
-                // Checkout the code from the Git branch
-                checkout scm
-            }
-        }
+        
         stage('Build') {
                     steps {
                         echo 'Building..'
