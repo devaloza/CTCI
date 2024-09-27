@@ -3,13 +3,16 @@ pipeline {
     tools {
         maven 'Maven'  // Make sure this matches the name in Global Tool Configuration
     }
-    
+    options {
+        // Timeout counter starts AFTER agent is allocated
+        timeout(time: 1, unit: 'SECONDS')
+    }
     stages {
         
         stage('Build') {
                     steps {
                         echo 'Building..'
-                        sh 'mvn clean install'
+                     //   sh 'mvn clean install'
                          sh 'mvn clean compile'
                     }
                 }
