@@ -2,7 +2,7 @@ pipeline {
     agent any
     options {
         // Timeout counter starts AFTER agent is allocated
-        timeout(time: 1, unit: 'SECONDS')
+        //timeout(time: 1, unit: 'SECONDS')
     }
     tools {
         maven 'Maven'  // Make sure this matches the name in Global Tool Configuration
