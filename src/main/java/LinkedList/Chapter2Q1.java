@@ -19,13 +19,15 @@ public class Chapter2Q1 {
     public void removeDuplicate() {
         Set<Integer> set = new HashSet<>();
         LL current = head;
+        LL prev = null;
         while (current != null) {
             if (set.contains(current.data)) {
-                current.next = current.next.next;
+                prev.next = current.next;
             } else {
                 set.add(current.data);
-                current = current.next;
+                prev = current;
             }
+            current = current.next;
         }
     }
     public String toString() {
