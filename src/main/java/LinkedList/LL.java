@@ -7,4 +7,8 @@ public class LL {
         this.data = data;
         this.next = null;
     }
+    public LL() {
+        this.data = 0;
+        this.next = null;
+    }
 }

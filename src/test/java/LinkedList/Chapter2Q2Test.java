@@ -26,7 +26,6 @@ public class Chapter2Q2Test {
         list.add(42);
 
         assertEquals(42, list.returnKthToLast(0)); // Only element is 42
-      //  assertThrows(IllegalArgumentException.class, () -> list.returnKthToLast(1)); // k out of bounds
     }
 
     @Test

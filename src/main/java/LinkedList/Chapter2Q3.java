@@ -16,8 +16,7 @@ public class Chapter2Q3 {
 
     }
     public LL deleteMiddleNode() {
-       // System.out.printf(head.data+" ");
-        if (head == null) throw new IllegalArgumentException("Invalid input");
+        if (head == null) return null;
         int size = 1;
         LL current = head;
         LL prev = null;
@@ -27,7 +26,7 @@ public class Chapter2Q3 {
         }
         int index = 1;
         int middle = size / 2;
-        System.out.printf(middle+" ");
+        if (middle == 0) return null;
         current = head;
         while (index < middle) {
             index++;
