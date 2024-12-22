@@ -39,15 +39,19 @@ pipeline {
                 }
     }
     post {
-        always {
-            // Cleanup or notifications
-            echo 'Build finished'
-        }
-        success {
-            echo 'Build succeeded'
-        }
-        failure {
-            echo 'Build failed'
-        }
+    success {
+        emailext(
+            subject: "SUCCESS: ${currentBuild.fullDisplayName}",
+            body: "<p>The build was successful.</p>",
+            to: 'devaloza93@gmail.com'
+        )
     }
+    failure {
+        emailext(
+            subject: "FAILURE: ${currentBuild.fullDisplayName}",
+            body: "<p>The build failed. Check console output at ${env.BUILD_URL}.</p>",
+            to: 'devaloza93@gmail.com'
+        )
+    }
+}
 }
